@@ -1,0 +1,18 @@
+
+.input-group-addon {
+min-width:130px;// if you want width please write here //
+max-width: 130px;
+  }
+#loading, #results, #bye, #bye2, #bye3, #bye4, #bye5, #bye6, #bye7, #bye8 {
+    display: none;
+  }
+  .sup {
+font-size: 45%;
+vertical-align: super;
+  }
+#bam1:hover{
+  cursor:pointer;
+}
+#bam {
+  display: none;
+}

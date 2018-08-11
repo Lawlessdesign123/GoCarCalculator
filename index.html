@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>GoCalculate</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+  </head>
+
+
+  <body class="bg-success px-0 py-2">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mx-auto">
+          <div class="card card-body text-center px-2 py-1">
+            <h1 class="heading display-6 pb-1 mb-1" onClick="change()" id="bam1">GoCalculate<span class="sup">&reg;</span></h1>
+            <div id="bam">
+            <img class="card-img-top mx-auto pb-1" src="images/gocar.png" alt="Card image cap" style="width: 55%" id="bye">
+            <img class="card-img-top mx-auto pb-3" src="images/gotripper.png" alt="Card image cap" style="width:55%" id="bye2">
+            <img class="card-img-top mx-auto pb-1" src="images/govan.png" alt="Card image cap" style="width: 55%" id="bye3">
+            <img class="card-img-top mx-auto pb-1" src="images/goi3.png" alt="Card image cap" style="width: 55%" id="bye4">
+            <img class="card-img-top mx-auto pb-1" src="images/gozoe.png" alt="Card image cap" style="width: 55%" id="bye5">
+            <img class="card-img-top mx-auto pb-1" src="images/goexplore.png" alt="Card image cap" style="width: 55%" id="bye6">
+            <img class="card-img-top mx-auto pb-1" src="images/goundercover.png" alt="Card image cap" style="width: 55%" id="bye7">
+            <img class="card-img-top mx-auto pb-1" src="images/gocargo.png" alt="Card image cap" style="width: 55%" id="bye8">
+            <form id="calc-form">
+              <div class="form-group mb-2">
+                <div class="input-group">
+                <span for="exampleSelect1" class="input-group-addon">Trip</span>
+                <select class="form-control" id="tripSelect" onInput="getTripValue()" onChange="hide();">
+                  <option>Please Select</option>
+                  <option value="1">GoCar (Short Trips)</option>
+                  <option value="2">GoFar (Long Trips)</option>
+                </select>
+                </div>
+              </div>
+              <div class="form-group mb-2">
+                <div class="input-group">
+                <span for="exampleSelect1" class="input-group-addon">Car</span>
+                <select class="form-control" id="carSelect" onInput="getCarValue();" onChange="hide();">
+                  <option>Please Select</option>
+                  <option value="a">GoCity</option>
+                  <option value="b">GoTripper</option>
+                  <option value="c">GoVan</option>
+                  <option value="d">GoElectric i3</option>
+                  <option value="e">GoElectric ZOE</option>
+                  <option value="f">GoExplore</option>
+                  <option value="g">GoUndercover</option>
+                  <option value="h">GoCargo</option>
+                </select>
+                  </div>
+              </div>
+              <div class="form-group mb-2">
+                <div class="input-group mb-2">
+                  <span class="input-group-addon">Pick Up</span>
+                  <input class="form-control" type="date" value="" id="startDate" onChange="hide()">
+                    </div>
+                    <div class="input-group">
+                  <span class="input-group-addon">Time</span>
+                  <input class="form-control" type="time" id="startTime" onChange="hide()">
+                    </div>
+              </div>
+              <div class="form-group mb-2" >
+                <div class="input-group mb-2">
+                  <span class="input-group-addon">Drop Off</span>
+                  <input class="form-control" type="date" value="" id="endDate" onChange="hide()">
+                </div>
+                <div class="input-group">
+                  <span class="input-group-addon">Time</span>
+                  <input class="form-control" type="time" id="endTime" onChange="hide()">
+                  </div>
+              </div>
+              <div class="form-group mb-2">
+                <div class="input-group">
+                  <span class="input-group-addon">Kilometres&nbsp;<i class="fa fa-info-circle" style="font-size:18px" title ="Estimate addtional kilometre costs"></i></span>
+                  <input type="number" class="form-control" id="amount" placeholder="50 Kilometres Free" onInput="hide()">
+                </div>
+              </div>
+                  <div class="form-group pb-1 pt-0 mb-0" id="calc">
+                    <input type="submit" value="Calculate" class="btn btn-dark btn-block" onClick="sums()">
+                  </div>
+            </form>
+            <!-- Loader Here -->
+          <div id="loading" class="pb-0 mb-0">
+              <img src="images/loader.gif" alt="" style="width: 10%">
+            </div>
+            <!-- Results -->
+            <div id="results" class="text-center pb-0 mb-1">
+            <h6 class="my-1 pt-2 pb-0 mb-0">Trip Cost</h5>
+            <div class="form-group text-center pb-0 mb-0">
+              <div class="input-group text-center pb-0 mb-0">
+                <h5 class="mx-auto pb-0" id="yup"></h4>
+              </div>
+            </div>
+          </div>
+          </div>
+          </div>
+              </div>
+        </div>
+    <script src="app.js">
+    </script>
+  </body>
+</html>
